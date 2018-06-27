@@ -10,6 +10,7 @@ endpoint http:Listener listener {
     port:9090
 };
 
+
 @kubernetes:Deployment {
    image: "pzfreo/btest",
    name: "btest"
