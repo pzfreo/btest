@@ -12,11 +12,7 @@ env:
     - DOCKER_REPO="btest"
     - DOCKER_ACC=pizak # replace with your Docker Hub account name    
 
-
-
 build:
-
-
   ci:
     - pushd $HOME
     - wget https://product-dist.ballerina.io/downloads/$BALLERINA_VERSION/$DISTRIBUTION_NAME.zip
@@ -29,10 +25,12 @@ build:
     
   post_ci:
     - docker push pizak/btest
+    - docker push gcr.io/kubernetes-project-198621/btest
     
-
-
 integrations:
   hub:
     - integrationName: docker-registry 
       type: dockerRegistryLogin
+
+    - integrationName: gcloud
+      type: gcloudKey
