@@ -9,8 +9,6 @@ env:
   global:
     - BALLERINA_VERSION=0.975.0
     - DISTRIBUTION_NAME=ballerina-platform-$BALLERINA_VERSION
-    - DOCKER_REPO="btest"
-    - DOCKER_ACC=pizak # replace with your Docker Hub account name    
 
 build:
   ci:
@@ -24,7 +22,7 @@ build:
     - ballerina test btest
     
   post_ci:
-    - docker push pizak/btest
+    - docker push pzfreo/btest
 #    - docker push gcr.io/kubernetes-project-198621/btest
     
     

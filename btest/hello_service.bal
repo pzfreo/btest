@@ -11,7 +11,7 @@ endpoint http:Listener listener {
 };
 
 @kubernetes:Deployment {
-   image: "pizak/btest",
+   image: "pzfreo/btest",
    name: "btest"
 }
 service<http:Service> hello bind listener {
