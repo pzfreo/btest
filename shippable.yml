@@ -25,7 +25,7 @@ build:
     
   post_ci:
     - docker push pizak/btest
-    - docker push gcr.io/kubernetes-project-198621/btest
+#    - docker push gcr.io/kubernetes-project-198621/btest
     
     
 integrations:
@@ -33,5 +33,5 @@ integrations:
     - integrationName: docker-registry 
       type: dockerRegistryLogin
 
-    - integrationName: gcloud
-      type: gcloudKey
+#    - integrationName: gcloud
+#      type: gcloudKey
