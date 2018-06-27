@@ -22,8 +22,8 @@ build:
     - export PATH=$PATH:$HOME/$DISTRIBUTION_NAME/bin
     - popd
     - ballerina version
-    - ballerina build .
-    - ballerina test .
+    - ballerina build btest
+    - ballerina test btest
 
 integrations:
 
