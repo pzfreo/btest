@@ -9,6 +9,8 @@ env:
   global:
     - BALLERINA_VERSION=0.975.0
     - DISTRIBUTION_NAME=ballerina-platform-$BALLERINA_VERSION
+    - DOCKER_REPO="btest"
+    - DOCKER_ACC=pizak # replace with your Docker Hub account name    
 
 
 
@@ -24,6 +26,11 @@ build:
     - ballerina version
     - ballerina build btest
     - ballerina test btest
+    
+  post_ci:
+    - docker push pizak/btest:0.0.1
+    
+
 
 integrations:
 
@@ -35,3 +42,7 @@ integrations:
       on_pull_request: never
 
 
+
+  hub:
+    - integrationName: docker  
+      type: dockerRegistryLogin
