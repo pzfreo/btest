@@ -27,6 +27,7 @@ build:
     - docker push pizak/btest
     - docker push gcr.io/kubernetes-project-198621/btest
     
+    
 integrations:
   hub:
     - integrationName: docker-registry 
