@@ -44,5 +44,5 @@ integrations:
 
 
   hub:
-    - integrationName: docker  
+    - integrationName: docker-registry 
       type: dockerRegistryLogin
