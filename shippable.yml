@@ -1,0 +1,30 @@
+language: java
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - BALLERINA_VERSION=0.975.0
+    - DISTRIBUTION_NAME=ballerina-platform-$BALLERINA_VERSION
+
+build:
+  ci:
+    - wget https://product-dist.ballerina.io/downloads/$BALLERINA_VERSION/$DISTRIBUTION_NAME.zip
+    - unzip $DISTRIBUTION_NAME.zip
+    - export PATH=$PATH:$(pwd)/$DISTRIBUTION_NAME/bin
+    - ballerina version
+    - ballerina build 
+    - ballerina test
+
+integrations:
+
+  notifications:
+    - integrationName: email
+      type: email
+      on_success: change
+      on_failure: always
+      on_pull_request: never
+
+
