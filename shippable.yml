@@ -21,6 +21,10 @@ build:
     - ballerina build btest
     - ballerina test btest
     
+    
+  on_failure:  
+    - cat ballerina-internal.log
+    
   post_ci:
     - docker push pzfreo/btest
 #    - docker push gcr.io/kubernetes-project-198621/btest
