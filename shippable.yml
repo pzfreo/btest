@@ -1,4 +1,5 @@
 language: java
+jdk: openjdk9
 
 branches:
   only:
@@ -9,13 +10,17 @@ env:
     - BALLERINA_VERSION=0.975.0
     - DISTRIBUTION_NAME=ballerina-platform-$BALLERINA_VERSION
 
+
+
+
 build:
-  ci:
+  pre-ci:
     - pushd $HOME
     - wget https://product-dist.ballerina.io/downloads/$BALLERINA_VERSION/$DISTRIBUTION_NAME.zip
     - unzip $DISTRIBUTION_NAME.zip
     - export PATH=$PATH:$HOME/$DISTRIBUTION_NAME/bin
     - popd
+  ci:
     - ballerina version
     - ballerina build 
     - ballerina test
