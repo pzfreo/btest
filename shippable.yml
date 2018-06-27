@@ -28,7 +28,7 @@ build:
     - ballerina test btest
     
   post_ci:
-    - docker push pizak/btest:0.0.1
+    - docker push pizak/btest
     
 
 
