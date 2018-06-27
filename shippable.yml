@@ -33,16 +33,6 @@ build:
 
 
 integrations:
-
-  notifications:
-    - integrationName: email
-      type: email
-      on_success: change
-      on_failure: always
-      on_pull_request: never
-
-
-
   hub:
     - integrationName: docker-registry 
       type: dockerRegistryLogin
