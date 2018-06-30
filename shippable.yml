@@ -29,6 +29,7 @@ build:
     - cat ballerina-internal.log
     
   post_ci:
+    - docker tag pzfreo/btest gcr.io/pzfreo/btest
     - docker push gcr.io/pzfreo/btest
     - kubectl apply -f target/kubernetes    
     
