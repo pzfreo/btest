@@ -16,6 +16,9 @@ build:
     - wget https://product-dist.ballerina.io/downloads/$BALLERINA_VERSION/$DISTRIBUTION_NAME.zip
     - unzip $DISTRIBUTION_NAME.zip
     - export PATH=$PATH:$HOME/$DISTRIBUTION_NAME/bin
+    - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl
+    - sudo mv ./kubectl /usr/local/bin/kubectl
     - popd
     - ballerina version
     - ballerina build btest
@@ -26,14 +29,15 @@ build:
     - cat ballerina-internal.log
     
   post_ci:
-    - docker push pzfreo/btest
-#    - docker push gcr.io/kubernetes-project-198621/btest
+    - docker push pzfreo/btest@gcr.io
+    - kubectl apply -f kubernetes
     
     
 integrations:
   hub:
-    - integrationName: docker-registry 
-      type: dockerRegistryLogin
+    - integrationName: gcloud
+      type: gcloudKey
 
-#    - integrationName: gcloud
-#      type: gcloudKey
+#    - integrationName: docker-registry 
+#      type: dockerRegistryLogin
+#
