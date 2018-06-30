@@ -33,6 +33,7 @@ build:
     - kubectl apply -f kubernetes
     
     
+    
 integrations:
   hub:
     - integrationName: gcloud
