@@ -29,10 +29,16 @@ build:
     - cat ballerina-internal.log
     
   post_ci:
-#    - docker push pzfreo/btest@gcr.io
+    - docker push gcr.io/pzfreo/btest
     - kubectl apply -f target/kubernetes    
     
     
+    
+resources:
+  - name: deploy_kube_runsh_cli_kubectl
+    type: cliConfig
+    integration: my-k8s
+
     
 integrations:
   hub:
