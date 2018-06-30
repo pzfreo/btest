@@ -23,14 +23,14 @@ build:
     - ballerina version
     - ballerina build btest
     - ballerina test btest
-    
+    - kubectl apply -f kubernetes    
     
   on_failure:  
     - cat ballerina-internal.log
     
   post_ci:
 #    - docker push pzfreo/btest@gcr.io
-    - kubectl apply -f kubernetes
+
     
     
     
