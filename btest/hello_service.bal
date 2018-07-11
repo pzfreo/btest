@@ -1,8 +1,9 @@
 import ballerina/http;
 import ballerinax/kubernetes;
 
-@kubernetes:Service{
-   serviceType:"NodePort",
+
+@kubernetes:Service {
+   serviceType:"LoadBalancer",
    name:"btest"
 }
 
