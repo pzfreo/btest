@@ -6,7 +6,7 @@ steps:
     fail_fast: true
     commands:
     - cd btest
-    - ballerina build .
+    - ballerina build btest
   build_Image:
     title: Build image
     type: build
