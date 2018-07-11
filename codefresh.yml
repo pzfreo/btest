@@ -26,8 +26,9 @@ steps:
     image: codefresh/kube-helm:master
     cluster: ${{CLUSTER}}
     namespace: ${{NAMESPACE}}
-    file_path: 
+    # file_path: 
     commands: 
+      - kubectl config get-contexts
       - kubectl apply -f ./target/kubernetes
     when:
       branch:
