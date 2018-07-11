@@ -7,8 +7,7 @@ steps:
     commands:
     - ballerina build btest
     on_fail:
-      commands: 
-        - cat ballerina-internal.log
+      - cat ballerina-internal.log
   build_Image:
     title: Build image
     type: build
