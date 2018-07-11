@@ -21,11 +21,14 @@ steps:
     - ballerina test btest
   deploy_to_k8s:
     title: Deploy to GKE Cluster
-    type: deploy
-    kind: kubernetes
+    # type: deploy
+    # kind: kubernetes
+    image: codefresh/kube-helm:master
     cluster: ${{CLUSTER}}
     namespace: ${{NAMESPACE}}
-    file_path: ./target/kubernetes/
+    file_path: 
+    commands: 
+      - kubectl apply -f ./target/kubernetes
     when:
       branch:
         only:
