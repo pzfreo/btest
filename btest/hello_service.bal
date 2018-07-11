@@ -2,6 +2,10 @@ import ballerina/http;
 import ballerinax/kubernetes;
 
 
+
+@kubernetes:Ingress {
+    hostname:"b7a.freo.me"
+}
 @kubernetes:Service {
    serviceType:"LoadBalancer",
    name:"btest"
