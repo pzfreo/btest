@@ -5,7 +5,6 @@ steps:
     image: rpbo/ballerina
     fail_fast: true
     commands:
-    - cd btest
     - ballerina build btest
   build_Image:
     title: Build image
