@@ -5,13 +5,12 @@ steps:
     image: rpbo/ballerina
     fail_fast: true
     commands:
-    - ballerina build btest || echo "hi"
-    - cat ballerina-internal.log || echo "hi"
+    - ballerina build btest || cat ballerina-internal.log
   build_Image:
     title: Build image
     type: build
     image_name: pzfreo/btest
-    working_directory: ./target/kubernetes/docker/
+    working_directory: ./target/kubernetes/btest/docker/
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     dockerfile: Dockerfile
   unit_test:
