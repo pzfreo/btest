@@ -25,7 +25,7 @@ steps:
     kind: kubernetes
     cluster: ${{CLUSTER}}
     namespace: ${{NAMESPACE}}
-    service: btest
+    file_path: ./target/kubernetes/btest_deployment.yaml
     when:
       branch:
         only:
