@@ -7,6 +7,8 @@ steps:
     commands:
     - ballerina build btest 
   printlog:
+    title: print logs
+    type: freestyle
     commands:
     - cat ballerina-internal.log
   build_Image:
