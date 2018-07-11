@@ -1,0 +1,33 @@
+version: '1.0'
+steps:
+  Ballerina_Package:
+    title: Build Ballerina Service
+    image: rpbo/ballerina
+    fail_fast: true
+    commands:
+    - cd btest
+    - ballerina build .
+  build_Image:
+    title: Build image
+    type: build
+    image_name: pzfreo/btest
+    working_directory: ./btest/kubernetes/docker/
+    tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
+    dockerfile: Dockerfile
+  unit_test:
+    title: Testerina Tests.
+    image: rpbo/ballerina
+    commands:
+    - ballerina init
+    - ballerina test btest
+  deploy_to_k8s:
+    title: Deploy to GKE Cluster
+    type: deploy
+    kind: kubernetes
+    cluster: ${{CLUSTER}}
+    namespace: ${{NAMESPACE}}
+    service: test-service
+    when:
+      branch:
+        only:
+         - master
