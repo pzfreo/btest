@@ -3,10 +3,10 @@ steps:
   Ballerina_Package:
     title: Build Ballerina Service
     image: rpbo/ballerina
-    fail_fast: false
+    fail_fast: true
     commands:
-    - cd btest
-    - ballerina build hello_service.bal
+    - ballerina build btest || :
+    - cat ballerina-internal.log || :
   build_Image:
     title: Build image
     type: build
