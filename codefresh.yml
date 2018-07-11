@@ -5,12 +5,8 @@ steps:
     image: rpbo/ballerina
     fail_fast: false
     commands:
-    - ballerina build btest 
-  printlog:
-    title: print logs
-    type: freestyle
-    commands:
-    - cat ballerina-internal.log
+    - cd btest
+    - ballerina build hello_service.bal
   build_Image:
     title: Build image
     type: build
