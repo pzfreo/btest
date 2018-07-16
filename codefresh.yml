@@ -6,6 +6,12 @@ steps:
     fail_fast: true
     commands:
     - ballerina build btest || cat ballerina-internal.log
+  unit_test:
+    title: Testerina Tests.
+    image: rpbo/ballerina
+    commands:
+    - ballerina init
+    - ballerina test btest
   build_Image:
     title: Build image
     type: build
@@ -15,18 +21,11 @@ steps:
     dockerfile: Dockerfile
     no_cache: true
     no_cf_cache: true
-  push_image:
-    type: push
-    title: Push Image
-    candidate: ${{build_step_name}}
-    tag: latest
+  push_Image:
     image_name: pzfreo/btest
-  unit_test:
-    title: Testerina Tests.
-    image: rpbo/ballerina
-    commands:
-    - ballerina init
-    - ballerina test btest
+    type: push
+    candidate: ${{build_Image}}
+    tag: latest
   deploy_to_k8s:
     title: Deploy to GKE Cluster
     type: deploy
