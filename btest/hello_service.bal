@@ -6,13 +6,13 @@ endpoint http:Listener listener {
     port:9090
 };
 
-// @docker:CopyFiles {
-//     files: [
-//         { source: "/Users/paul/demo/twitter.toml", target: "/home/ballerina/conf/twitter.toml", isBallerinaConf: true}
-//     ]
-// }
+@docker:CopyFiles {
+    files: [
+        { source: "/Users/paul/demo/twitter.toml", target: "/home/ballerina/twitter.toml", isBallerinaConf: true}
+    ]
+}
 @docker:Config {
-    name: "pzfreo/btest",
+    name: "pzfreo/btest" ,
     buildImage: false
 }
 @http:ServiceConfig {
