@@ -15,6 +15,12 @@ steps:
     dockerfile: Dockerfile
     no_cache: true
     no_cf_cache: true
+  push_image:
+    type: push
+    title: Push Image
+    candidate: ${{build_step_name}}
+    tag: latest
+    image_name: pzfreo/btest
   unit_test:
     title: Testerina Tests.
     image: rpbo/ballerina
