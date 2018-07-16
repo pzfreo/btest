@@ -16,7 +16,7 @@ steps:
     title: Build image
     type: build
     image_name: pzfreo/btest
-    working_directory: ./target/kubernetes/btest/docker/
+    working_directory: ./target/btest/
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     dockerfile: Dockerfile
     no_cache: true
