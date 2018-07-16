@@ -17,6 +17,6 @@ service<http:Service> hello bind listener {
         path: "/"
     }
     hi (endpoint caller, http:Request request) {
-        _ = caller -> respond("Hello World");
+        _ = caller -> respond("Hello Kubernetes World");
     }
 }
