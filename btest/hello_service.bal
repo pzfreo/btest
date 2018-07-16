@@ -5,7 +5,7 @@ endpoint http:Listener listener {
     port:9090
 };
 
-@docker:docker:Config {
+@docker:Config {
     name: "pzfreo/btest",
     buildImage: false
 }
