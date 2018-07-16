@@ -14,6 +14,7 @@ steps:
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     dockerfile: Dockerfile
     no_cache: true
+    no_cf_cache: true
   unit_test:
     title: Testerina Tests.
     image: rpbo/ballerina
