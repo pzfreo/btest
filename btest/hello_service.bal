@@ -1,25 +1,13 @@
 import ballerina/http;
-import ballerinax/kubernetes;
-
-
-
-@kubernetes:Ingress {
-    hostname:"b7a.freo.me"
-}
-@kubernetes:Service {
-   serviceType:"LoadBalancer",
-   name:"btest"
-}
+import ballerinax/docker;
 
 endpoint http:Listener listener {
     port:9090
 };
 
-
-@kubernetes:Deployment {
-   image: "pzfreo/btest",
-   name: "btest",
-   buildImage: false
+@docker:docker:Config {
+    name: "pzfreo/btest",
+    buildImage: false
 }
 service<http:Service> hello bind listener {
     hi (endpoint caller, http:Request request) {
