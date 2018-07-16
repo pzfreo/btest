@@ -13,6 +13,7 @@ steps:
     working_directory: ./target/kubernetes/btest/docker/
     tag: '${{CF_BRANCH_TAG_NORMALIZED}}'
     dockerfile: Dockerfile
+    no_cache: true
   unit_test:
     title: Testerina Tests.
     image: rpbo/ballerina
