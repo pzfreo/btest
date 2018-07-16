@@ -6,14 +6,15 @@ endpoint http:Listener listener {
     port:9090
 };
 
-@docker:Config {
-    name: "pzfreo/btest",
-    buildImage: false
-}
 @docker:CopyFiles {
     files: [
         { source: "/Users/paul/demo/twitter.toml", target: "/home/ballerina/conf/twitter.toml", isBallerinaConf: true}
     ]
+}
+
+@docker:Config {
+    name: "pzfreo/btest",
+    buildImage: false
 }
 @http:ServiceConfig {
     basePath: "/"
@@ -24,7 +25,7 @@ service<http:Service> hello bind listener {
     }
     
     hi (endpoint caller, http:Request request) {
-        
+
         _ = caller -> respond("Hello Kubernetes World\n");
     }
 }
