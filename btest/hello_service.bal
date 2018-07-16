@@ -1,16 +1,10 @@
 import ballerina/http;
 import ballerinax/docker;
-import ballerina/config;
 
 endpoint http:Listener listener {
     port:9090
 };
 
-@docker:CopyFiles {
-    files: [
-        { source: "/Users/paul/demo/twitter.toml", target: "/home/ballerina/twitter.toml", isBallerinaConf: true}
-    ]
-}
 @docker:Config {
     name: "pzfreo/btest" ,
     buildImage: false
@@ -24,7 +18,6 @@ service<http:Service> hello bind listener {
     }
     
     hi (endpoint caller, http:Request request) {
-
-        _ = caller -> respond("Hello Kubernetes World\n");
+        _ = caller -> respond("Hello World\n");
     }
 }
