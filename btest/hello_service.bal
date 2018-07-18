@@ -18,6 +18,6 @@ service<http:Service> hello bind listener {
     }
     
     hi (endpoint caller, http:Request request) {
-        _ = caller -> respond("Hello World\n");
+        _ = caller -> respond("Hello BallerinaCon\n");
     }
 }
